@@ -7,7 +7,6 @@ class: center, middle
 ## 自己紹介
 
 - 森國泰平(モリクニ タイヘイ)
-- 豊橋技術科学大学 大学院1年 中退
 - 16新卒 技術部
 - 2月下旬からインターン、4月にそのまま入社
 - GitHub@[morikuni](https://github.com/morikuni)
