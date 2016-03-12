@@ -2,6 +2,8 @@ class: center, middle
 
 #Cottonの紹介
 
+追記: YACM(八雲)に改名しました
+
 ---
 
 ## 自己紹介
@@ -19,6 +21,8 @@ class: center, middle
 ###CottonというGoのライブラリを作り始めたので紹介します
 
 https://github.com/morikuni/cotton
+
+追記: https://github.com/morikuni/yacm
 
 ---
 
@@ -68,6 +72,8 @@ http://niconare.nicovideo.jp/watch/kn1052#9
 
 https://github.com/morikuni/cotton#example
 
+追記: https://github.com/morikuni/yacm#example
+
 ---
 
 ## ミドルウェアの作り方
@@ -86,9 +92,9 @@ func MyMiddleware(w http.ResponseWriter, r *http.Request, s Service) Error {
 }
 ```
 
-[PanicFilter](https://github.com/morikuni/cotton/blob/master/panic.go)
+[PanicFilter](https://github.com/morikuni/yacm/blob/master/panic.go)
 
-[MethodFilter](https://github.com/morikuni/cotton/blob/master/method.go)
+[MethodFilter](https://github.com/morikuni/yacm/blob/master/method.go)
 
 ---
 
