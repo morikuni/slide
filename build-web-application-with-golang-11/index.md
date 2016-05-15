@@ -320,3 +320,8 @@ ok  	_/Users/morikuni-taihei/Repositories/slide/build-web-application-with-golan
 テストを書くことで将来コードが変更されたときにも回帰テストを行うことができる。  
 ユニットテストと耐久テストは実運用が開始された後のコードが予定通り実行されることを保証してくれる。
 
+---
+
+## おまけ
+
+[ユニットテストが書きやすい設計〜自家製モックを添えて〜 - Qiita](http://qiita.com/morikuni/items/24c98e5d8116ab14fcdf)
