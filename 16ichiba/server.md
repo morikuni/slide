@@ -90,3 +90,11 @@ WebSocketを使うためには`proxy_set_header Upgrade $http_upgrade;`と`proxy
 - 振るフレッシュから1秒間に5回以上送信されている
 
 何度か不正アクセスと判断されたが、ネットワークの遅延が原因？
+
+---
+
+## 感想など
+
+- WebSocket簡単に使えるGo最高では
+- Nginxの設定でIP Forwarding?してなかったからどこからのアクセスかわからなかった
+- 本気で不正対策するのすごい難しそう
