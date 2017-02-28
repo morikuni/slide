@@ -47,6 +47,8 @@ class: center, middle
 }
 ```
 
+---
+
 ## 暗号化とは
 
 詳しいことが知りたければ[暗号技術入門 第3版　秘密の国のアリス](https://www.amazon.co.jp/dp/B015643CPE)。
@@ -120,9 +122,10 @@ KMSにテキストを投げてなにも考えずに暗号化、復号をする�
     - 使用するブロック暗号を入れ替えることが出来る
     - CBC, CTR, ...
     - [Wikipedia](https://ja.wikipedia.org/wiki/%E6%9A%97%E5%8F%B7%E5%88%A9%E7%94%A8%E3%83%A2%E3%83%BC%E3%83%89)
-]
 
 AESとCBC or AESとCTRがオススメされていた気がする
+]
+
 
 ---
 
@@ -231,6 +234,8 @@ type ConfigProvider interface {
 - `AWS_SDK_LOAD_CONFIG`: `~/.aws/config`を読み込むか
 - `AWS_SHARED_CREDENTIALS_FILE`: credentialsファイルのパス
 - `AWS_CONFIG_FILE`: configファイルのパス
+
+---
 
 ## まとめ
 
