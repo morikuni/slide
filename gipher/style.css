@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body {
+	font-family: 'Noto Sans JP', 'arial';
+}
+
+h1, h2, h3 {
+	font-family: 'Noto Sans JP', 'arial';
+	font-weight: bold;
+	color: #ddd;
+}
+
+.remark-code, .remark-inline-code {
+	font-family: 'Ubuntu Mono';
+	background-color: #555;
+	border-radius: 5px;
+	padding: 4px;
+}
+
+.remark-slide-content {
+	background-color: #272822;
+	color: #ddd;
+	font-size: 20px;
+}
+
+code.hljs.remark-code {
+	background-color: #151515;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+li {
+	margin: 15px auto;
+}
+
+a {
+	color: #f92672;
+}
+
+blockquote {
+	font-style: italic;
+	background-color: #555;
+	border-radius: 5px;
+}
+
+blockquote p {
+	padding: 10px;
+}
+
+.half-left {
+	float: left;
+	width: 47%;
+}
+
+.half-right {
+	float: right;
+	width: 47%;
+}
+
+.center {
+	margin: auto;
+}
