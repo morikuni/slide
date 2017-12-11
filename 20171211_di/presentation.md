@@ -179,7 +179,7 @@ func InjectService() Service {
 # 詳しくはWebで！
 
 ### 明日(12/12)のQiita Advent Calender Go4に
-### より詳しい解説記事を書きます！
+### もう少し詳しい記事を書きます！
 
 #### [https://qiita.com/advent-calendar/2017/go4](https://qiita.com/advent-calendar/2017/go4)
 
