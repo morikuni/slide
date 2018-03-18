@@ -69,7 +69,7 @@ func main() {
 
 ---
 
-# DIコンテナを使う (goldi[^*1])
+# DIコンテナを使う ([goldi](https://github.com/fgrosse/goldi)[^*1])
 
 - yamlに依存関係を記述する
 - DIコンテナ用のコードを生成する
