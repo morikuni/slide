@@ -1,7 +1,7 @@
 theme: morikuni_dark
 
 # ホリネズミでもわかる
-# goroutine入門
+# Goroutine入門
 ### golang.tokyo#14 2018/04/16
 
 ---
@@ -21,10 +21,10 @@ theme: morikuni_dark
 
 ### 本日の内容
 
-初心者がgoroutineを使えるようになるための話
+初心者がGoroutineを使えるようになるための話
 
 - Goにおける並行処理について
-- goroutineを使った並行処理の注意点と対策
+- Goroutineを使った並行処理の注意点と対策
 - 便利なツールの紹介
 
 ---
@@ -35,28 +35,28 @@ theme: morikuni_dark
 
 # Goに組み込まれている並行処理のための機能
 
-- goroutine
+- Goroutine
 - chan
 - select
 
 ---
 
-## goroutineについて
+## Goroutineについて
 
 ---
 
-# goroutineとは
+# Goroutineとは
 
 - Goを代表する機能の1つ
 - 並行処理を行うための機能(CPUが複数あれば並列実行もできる)
 - プロセスやスレッドよりも軽量
-- main関数もgoroutineとして実行されている
+- main関数もGoroutineとして実行されている
 
 ---
 
-# goroutineの起動
+# Goroutineの起動
 
-`go` をつけて関数を呼び出すことでgoroutineが起動する
+`go` をつけて関数を呼び出すことでGoroutineが起動する
 
 ```go
 go Function()
@@ -94,18 +94,18 @@ go func() {
 
 ---
 
-# goroutineとコールスタック
+# Goroutineとコールスタック
 
-- goroutineが起動した時点で関数のコールスタックが分離する
-- panicはgoroutineのコールスタックを戻っていく
-- つまり、defer & recoverはpanicが発生したgoroutine内で使う必要がある
+- Goroutineが起動した時点で関数のコールスタックが分離する
+- panicはGoroutineのコールスタックを戻っていく
+- つまり、defer & recoverはpanicが発生したGoroutine内で使う必要がある
 - Devquiz枠はこれがハマりポイント
 
 ---
 
-# goroutineとコールスタック
+# Goroutineとコールスタック
 
-goroutineを使わない場合のコールスタック
+Goroutineを使わない場合のコールスタック
 
 ```go
 func A() {
@@ -128,7 +128,7 @@ func D() {
 
 ---
 
-# goroutineとコールスタック
+# Goroutineとコールスタック
 
 ```go
 func A() {
@@ -149,9 +149,9 @@ Bの`defer`が実行される
 
 ---
 
-# goroutineとコールスタック
+# Goroutineとコールスタック
 
-goroutineを使った場合のコールスタック
+Goroutineを使った場合のコールスタック
 
 ```go
 func A() {
@@ -174,7 +174,7 @@ func D() {
 
 ---
 
-# goroutineとコールスタック
+# Goroutineとコールスタック
 
 ```go
 func A() {
@@ -202,7 +202,7 @@ Bの`defer`は実行されない
 
 # chanとは
 
-- goroutine間のデータの送受信や処理の同期を行う
+- Goroutine間のデータの送受信や処理の同期を行う
 - FIFOのキュー(最初に入れた値が最初に取り出される)
 - 容量を持つ
 - 3種類の型がある
@@ -304,7 +304,7 @@ c1からの読み込みもc2への書き込みもできない場合にdefaultが
 
 ---
 
-# goroutineを使った
+# Goroutineを使った
 # 並行処理の注意点と対策
 
 ---
@@ -340,7 +340,7 @@ $ go run main.go
 
 # Wait処理
 
-goroutineの処理が実行される前にプロセスが終了してしまうから
+Goroutineの処理が実行される前にプロセスが終了してしまうから
 
 ```go
 func main() {
@@ -398,9 +398,9 @@ chanで処理の完了を通知する
 ```go
 func main() {
     var wg sync.WaitGroup
-    wg.Add(1) // goroutineを呼び出す前にAddする
+    wg.Add(1) // Goroutineを呼び出す前にAddする
     go func() {
-        defer wg.Done() // goroutineの中でdeferを使ってDoneを呼び出す
+        defer wg.Done() // Goroutineの中でdeferを使ってDoneを呼び出す
         fmt.Println("Hello World")
     }()
     wg.Wait()
@@ -416,16 +416,16 @@ func main() {
 
 - サンプルコードなどは`time.Sleep`が楽
 - 基本的に`sync.WaitGroup`を使っていればいい
-    - chanは複数のgoroutineの完了を待つのには使いづらい
+    - chanは複数のGoroutineの完了を待つのには使いづらい
 - `golang.org/x/sync/errgroup`という`WaitGroup`にエラー処理を追加したものもある
 
 ---
 
-## goroutineとforループ
+## Goroutineとforループ
 
 ---
 
-# goroutineとforループ
+# Goroutineとforループ
 
 1, 2, 3, 4, 5を出力したい(順不同)
 
@@ -443,7 +443,7 @@ time.Sleep(time.Second)
 
 ---
 
-# goroutineとforループ
+# Goroutineとforループ
 
 ```sh
 $ go run main.go
@@ -458,7 +458,7 @@ $ go run main.go
 
 ---
 
-# goroutineとforループ
+# Goroutineとforループ
 
 `x`はループ毎に値を上書きされて使い回されるから
 
@@ -474,7 +474,7 @@ time.Sleep(time.Second)
 
 ---
 
-# goroutineとforループ
+# Goroutineとforループ
 
 forの実装イメージ
 
@@ -500,7 +500,7 @@ for i := 0; i < len(xs); i++ {
 
 ---
 
-# goroutineとforループ
+# Goroutineとforループ
 
 対策: 一度変数に代入する
 
@@ -602,7 +602,7 @@ W: doubleに書き込む値
 対策1: 直接で処理する
 
 - 並行処理をすると競合がおきるので、排他制御を行う
-- 排他制御を一番簡単にやる方法は、直列で処理することなので本当にgoroutine使う必要があるかを検討してみるといい
+- 排他制御を一番簡単にやる方法は、直列で処理することなので本当にGoroutine使う必要があるかを検討してみるといい
 
 ---
 
@@ -647,17 +647,17 @@ atomic.StoreInt64(&count, 100) // countの値を100にする
 
 # 競合状態のまとめ
 
-- 直列処理(goroutineつかわない)ではダメか検討
+- 直列処理(Goroutineつかわない)ではダメか検討
 - 数値系はsync/atomicが使える可能性がある
 - それ以外はsync.Mutex, sync.RWMutexを使えば大体問題ない
 
 ---
 
-# goroutine leak
+# Goroutine leak
 
 ---
 
-# goroutine leak
+# Goroutine leak
 
 websiteAとwebsiteBのどちらかの結果を出力したい
 
@@ -682,7 +682,7 @@ fmt.Println(<-ch) // 最初に返ってきた方だけを使う
 
 ---
 
-# goroutine leak
+# Goroutine leak
 
 ```go
 type result struct {
@@ -701,11 +701,11 @@ go fetch("https://websiteB", ch)
 fmt.Println(<-ch) // 最初に返ってきた方だけを使う
 ```
 
-websiteAとwebsiteBのどちらか片方のgoroutineがleakする
+websiteAとwebsiteBのどちらか片方のGoroutineがleakする
 
 ---
 
-# goroutine leak
+# Goroutine leak
 
 対策: context.Contextとselectを使う
 
@@ -727,17 +727,17 @@ fmt.Println(<-ch) // 最初に返ってきた方だけを使う
 ```
 
 websiteAが完了 → `fmt.Println` → `defer cancel()` →
-`ctx.Done()` → websiteBの`fetch`が終了 → goroutineが終了
+`ctx.Done()` → websiteBの`fetch`が終了 → Goroutineが終了
 
 ---
 
-## goroutineを使った並行処理の注意点と対策のまとめ
+## Goroutineを使った並行処理の注意点と対策のまとめ
 
 - forでは変数に代入する
 - sync.WaitGroupで完了を待つ
 - sync.Mutexで排他制御をする
 - 数値系はsync/atomicが便利
-- context.Contextでgoroutine leakを回避する
+- context.ContextでGoroutine leakを回避する
 
 ---
 
@@ -748,7 +748,7 @@ websiteAが完了 → `fmt.Println` → `defer cancel()` →
 # gotrace
 
 - [https://github.com/divan/gotrace](https://github.com/divan/gotrace)
-- goroutineとchanのやりとりを可視化できる
+- Goroutineとchanのやりとりを可視化できる
 
 ![inline](./gotrace.png)
 
@@ -846,7 +846,7 @@ func main() {
 
 ---
 
-## goroutine leakとか見つかるかも?
+## Goroutine leakとか見つかるかも?
 
 ---
 
@@ -859,4 +859,4 @@ func main() {
 
 ---
 
-# ʕ◔ϖ◔ʔ < goroutineやっていき
+# ʕ◔ϖ◔ʔ < Goroutineやっていき
